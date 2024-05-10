@@ -4,14 +4,18 @@ import { Box } from '@material-ui/core';
 export const useStyles = makeStyles(() => {
     return {
         icon:{
-            width: '40px',
-            height: '40px'
+            width: '70px',
+            height: '37px'
         },
     }
 });
 
 export const UserWrapper = withStyles({
   root: {
-    paddingTop: '30px'
-  },
+    display: 'flex',
+    backgroundColor: '#112441',
+    height: '70px',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 })(Box);

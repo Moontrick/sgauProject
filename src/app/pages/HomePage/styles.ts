@@ -3,8 +3,9 @@ import { RootWrapper } from '../../../components/RootWrapper';
 
 export const useStyles = makeStyles(() => {
     return {
-        block:{
-            backgroundColor: 'black'
+        icon:{
+            width:'500px',
+            height:'500px',
         }
 
     }
@@ -12,7 +13,12 @@ export const useStyles = makeStyles(() => {
 );
 export const HomeWrapper = withStyles({
     root: {
-        height: '100vh'
+        height: '100vh',
+        backgroundColor:'#112441',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+    
     },
   })(RootWrapper);
   

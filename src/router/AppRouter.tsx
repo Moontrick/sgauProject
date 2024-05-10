@@ -1,6 +1,7 @@
 import {Routes, Route, Navigate, Router} from 'react-router-dom';
 import {routes} from './routes';
 import {HomePage} from '../app/pages/HomePage';
+import {OrderListPage} from '../app/pages/OrderList';
 import { TestPage } from '../app/pages/TestPage';
 type RouterItem = {path: string; element: React.ReactNode};
 
@@ -12,6 +13,10 @@ const router: RouterItem[] = [
     {
         path: routes.home.template, 
         element: <HomePage />
+    },
+    {
+        path: routes.orderList.template, 
+        element: <OrderListPage />
     },
 ]
 router.forEach(({ element, path }) => console.log(element, path))

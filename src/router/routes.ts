@@ -12,10 +12,13 @@ export interface AppRoute<T = unknown> {
   export enum AppRouteType {
     home = 'home',
     test = 'test',
+    orderList = 'orderList',
   }
   export enum AppRouteSection {
     appMode = 'appMode',
+    user = 'user',
     receiveRawMaterials = 'receiveRawMaterials',
+    receiveRawSclad = 'receiveRawSclad',
   }
   
   export const routes: Record<AppRouteType, AppRoute<unknown & string>> = {
@@ -26,6 +29,10 @@ export interface AppRoute<T = unknown> {
     [AppRouteType.test]: makeAppRoute({
       template: makeUrl('/test'),
       build: () => makeUrl('/test'),
+    }),
+    [AppRouteType.orderList]: makeAppRoute({
+      template: makeUrl('/orderList'),
+      build: () => makeUrl('/orderList'),
     }),
   };
   

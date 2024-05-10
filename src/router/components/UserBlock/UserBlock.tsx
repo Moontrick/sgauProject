@@ -1,11 +1,11 @@
 import React from 'react';
 import { UserWrapper, useStyles } from './styles';
-import UserIcon from '../../../assets/icons/user.svg';
+import LogoIcon from '../../../assets/icons/newLogo.svg';
 export const UserBlock = () => {
     const classes = useStyles()
   return (
     <UserWrapper>
-      <img src={UserIcon} alt="logo" className={classes.icon}/>
+      <img src={LogoIcon} alt="logo" className={classes.icon}/>
     </UserWrapper>
   );
 }
