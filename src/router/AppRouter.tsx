@@ -19,7 +19,7 @@ const router: RouterItem[] = [
         element: <OrderListPage />
     },
 ]
-router.forEach(({ element, path }) => console.log(element, path))
+
 export const AppRouter = () => {
   return (
     <div style={{marginLeft: '70px'}}>

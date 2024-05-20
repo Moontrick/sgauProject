@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
 import { store } from './app/store';
 import { RootProps } from './root.types';
+import './index.css'
 import App from './App';
 import {Navigation} from './router/Navigation';
 import { AppRouter } from './router/AppRouter';

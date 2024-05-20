@@ -20,10 +20,9 @@ export function Navigation() {
   const handleLinkClick = (path: string) => {
       navigate(path);
   };
-  console.log(routes)
-  console.log(currentEpanded)
+
   return (
-    <div style={{position:'absolute', width: expanded ? '100%' : '70px', zIndex:'4'}}>
+    <div style={{position:'fixed', width: expanded ? '100%' : '70px', zIndex:'4'}}>
     <div style={{ width: expanded ? '400px' : '70px', backgroundColor: '#efecec', height: '100vh', transition: '0.3s ease-in-out', display: 'flex'}}>
 
         <div className={classes.block}>
