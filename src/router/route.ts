@@ -20,11 +20,16 @@ export const appRoutes = [
   {
     id: AppRouteSection.receiveRawMaterials,
     icons: Docs,
-    title: 'Поступление',
+    title: 'Накладные',
     items: [
       {
+        id: AppRouteType.invoceList,
+        title: 'Список накладных',
+        href: routes[AppRouteType.invoceList].build(),
+      },
+      {
         id: AppRouteType.test,
-        title: 'Склад',
+        title: 'unTitled',
         href: routes[AppRouteType.test].build(),
       },
     ],

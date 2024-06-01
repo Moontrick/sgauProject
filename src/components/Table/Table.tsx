@@ -15,34 +15,41 @@ interface TableInterface {
     columns: TableColumn<T>[],
     rows: T,
     children?: ReactNode;
+    style?: React.CSSProperties | undefined;
   }
 
 
-export const TableComponents: React.FC<TableInterface> = ({columns, rows, children}) => {
+export const TableComponents: React.FC<TableInterface> = ({columns, rows, children, style}) => {
   const dispatch = useDispatch();
-    console.log(rows)
-    console.log(columns)
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} style={style}>
     <Table aria-label="collapsible table">
       <TableHead>
         <TableRow>
             {columns.map((item, index) =>{
                 return(
-                    <TableCell style={{width:`${item.width}`}} key={index}>{item.title}</TableCell>
+                    <TableCell style={{minWidth: `${item.width}px`, textAlign: 'center', borderRight: '1px solid #ccc'}} key={index}>{item.title}</TableCell>
                 )
             })}
         </TableRow>
       </TableHead>
       <TableBody>
-        {rows.map((_e: any, indexRows: React.Key | null | undefined) =>{
+        {rows.map((_e: any, indexRows: any) =>{
             return(
             <TableRow key={indexRows}>
                 {columns.map((i:TableColumn<T>, indexColumn) =>
                 {
+                  let customStyle:React.CSSProperties = {
+                    
+                    textAlign: 'center', 
+                    borderRight: '1px solid #ccc',
+                  }
+                  if (i.style?.cell?.style) {
+                    customStyle = {...customStyle, ...i.style.cell.style(rows[indexRows][i.name])}
+                  }
                     return(
-                        <TableCell>
-                            {rows[indexColumn][i.name]}
+                        <TableCell style={customStyle}>
+                            {rows[indexRows][i.name].toString()}
                         </TableCell>
                     )
                 })}

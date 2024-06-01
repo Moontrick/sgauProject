@@ -236,7 +236,7 @@ export interface RowStyleProps<R> {
   /**
    * Стиль.
    */
-  style?: CSSProperties | ((row: R) => CSSProperties | undefined);
+  style?: ((row: R) => CSSProperties);
   /**
    * Имя класса.
    */

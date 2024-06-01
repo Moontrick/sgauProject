@@ -6,8 +6,6 @@ export const useStyles = makeStyles(() => {
             width: '70px',
             height: '40px',
             strokeWidth:"2", stroke: "green", fill:"#ff0000",
-            // pointerEvents: 'none',
-            // userSelect: 'none',
         },
         block:{
             width: '70px', 
@@ -37,6 +35,10 @@ export const useStyles = makeStyles(() => {
             padding: '20px 0px 0px 50px',
             flexDirection:'column',
             alignItems: 'flex-start',
+        },
+        root:{
+            left: '72px',
+            top: '-74px'
         }
     }
 });

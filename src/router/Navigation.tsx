@@ -29,7 +29,7 @@ export function Navigation() {
             <div>
             <UserBlock />
             {routes.map((item, index) => (
-                <Tooltip title={item.title} key={index}>
+                <Tooltip title={item.title} key={index} placement="right" >
                 <div onClick={() => toggleMenu(index)}
                     style={{ cursor: 'pointer', color: 'white', transition: '0.3s ease-in-out', width:'100%', height:'70px', display: 'flex', alignItems: 'center',
                     justifyContent: 'center',
@@ -40,7 +40,7 @@ export function Navigation() {
                 </Tooltip>
             ))}
             </div>
-             <Tooltip title={expanded ? 'Закрыть' : 'Открыть'} onClick={() => toggleMenu(-1)} style={{cursor: 'pointer',}}>
+             <Tooltip title={expanded ? 'Закрыть' : 'Открыть'} placement="right" onClick={() => toggleMenu(-1)} style={{cursor: 'pointer',}}>
         <img src={ChevroneIcon} alt="logo" 
         style={{   
             transform: expanded? 'rotate(180deg)' : 'rotate(0deg)',transition: '0.3s ease-in-out',
@@ -51,7 +51,7 @@ export function Navigation() {
         </div>
         {expanded && (
             <div className={classes.wrapperBlock}>
-                <h1 style={{fontSize:'20px'}}>{routes[currentEpanded]?.title}</h1>
+                <h1 style={{fontSize:'30px', marginBottom: '20px', display: 'flex'}}>{routes[currentEpanded]?.title}</h1>
                 {routes[currentEpanded]?.items && routes[currentEpanded]?.items?.map((elem, index) => {return (
                     <button
                 key={index} 
@@ -63,7 +63,7 @@ export function Navigation() {
                 }
                 }}
             >
-                {elem?.title}
+                <p style={{fontSize: '20px'}}>{elem?.title}</p>
             </button>
 
                 )})}

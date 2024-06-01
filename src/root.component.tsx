@@ -11,7 +11,6 @@ import { AppRouter } from './router/AppRouter';
 import { AppContainer } from './components/AppContainer';
 export const Root = (props: RootProps): JSX.Element => {
 const {baseHref, route, applicationName} = props;
-
     useLayoutEffect(() => {
         sessionStorage.setItem('baseHref', baseHref || '');
     }, [applicationName]);

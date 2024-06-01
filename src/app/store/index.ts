@@ -1,10 +1,14 @@
 import * as reducers from '../reducer';
+import * as tableReudcer from '../store/tabelsStore';
 import {Action, combineReducers, configureStore} from '@reduxjs/toolkit';
 import {createSelectorHook, useDispatch} from 'react-redux';
 import {ThunkAction, ThunkDispatch} from 'redux-thunk';
+import { TableState } from '../../components/Table/typings';
+import { TableColumn } from '../../components/Table/types';
 
 export const rootReducer = combineReducers({
   ...reducers,
+  ...tableReudcer,
 });
 
 export const store = configureStore({
@@ -29,4 +33,4 @@ export type AppThunkDispatch = ThunkDispatch<AppState, AppExtraArg, Action<strin
 export const useAppDispatch = (): AppThunkDispatch => useDispatch<AppThunkDispatch>();
 export const useSelector = createSelectorHook();
 
-//export const managerSelector = (key: string) => (state: {[key: string]: TableState}) => state[key];
+export const managerSelector = (key: string) => (state: {[key: string]: TableState}) => state[key];

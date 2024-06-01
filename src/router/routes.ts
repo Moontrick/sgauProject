@@ -13,6 +13,7 @@ export interface AppRoute<T = unknown> {
     home = 'home',
     test = 'test',
     orderList = 'orderList',
+    invoceList = 'invoceList',
   }
   export enum AppRouteSection {
     appMode = 'appMode',
@@ -33,6 +34,10 @@ export interface AppRoute<T = unknown> {
     [AppRouteType.orderList]: makeAppRoute({
       template: makeUrl('/orderList'),
       build: () => makeUrl('/orderList'),
+    }),
+    [AppRouteType.invoceList]: makeAppRoute({
+      template: makeUrl('/invoceList'),
+      build: () => makeUrl('/invoceList'),
     }),
   };
   

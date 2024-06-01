@@ -3,6 +3,7 @@ import {routes} from './routes';
 import {HomePage} from '../app/pages/HomePage';
 import {OrderListPage} from '../app/pages/OrderList';
 import { TestPage } from '../app/pages/TestPage';
+import { InvoceList } from '../app/pages/InvoceList';
 type RouterItem = {path: string; element: React.ReactNode};
 
 const router: RouterItem[] = [
@@ -17,6 +18,10 @@ const router: RouterItem[] = [
     {
         path: routes.orderList.template, 
         element: <OrderListPage />
+    },
+    {
+        path: routes.invoceList.template, 
+        element: <InvoceList />
     },
 ]
 
