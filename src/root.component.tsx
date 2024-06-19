@@ -8,9 +8,12 @@ import './index.css'
 import App from './App';
 import {Navigation} from './router/Navigation';
 import { AppRouter } from './router/AppRouter';
-import { AppContainer } from './components/AppContainer';
+import { AuthContainer, SettingContainer, AppContainer } from './components';
+
+
 export const Root = (props: RootProps): JSX.Element => {
 const {baseHref, route, applicationName} = props;
+    
     useLayoutEffect(() => {
         sessionStorage.setItem('baseHref', baseHref || '');
     }, [applicationName]);
@@ -18,10 +21,14 @@ const {baseHref, route, applicationName} = props;
   return (
       <BrowserRouter basename={route || '/'}>
         <Provider store={store}>
-          <AppContainer>
-            <Navigation />
-            <AppRouter />
-            </AppContainer>
+          <SettingContainer>
+            <AuthContainer>
+              <AppContainer>
+                  <Navigation />
+                  <AppRouter />
+                </AppContainer>
+              </AuthContainer>
+            </SettingContainer>
         </Provider>
       </BrowserRouter>
   );

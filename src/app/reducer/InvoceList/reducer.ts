@@ -8,6 +8,9 @@ export const slice = createSlice({
     setTableData: (state, action: PayloadAction<InvoceTableType[]>) => {
       state.tableData = action.payload;
     },
+    setOpenModal: (state, action: PayloadAction<boolean>) => {
+      state.openModal = action.payload;
+    },
     resetState: () => {
       return initialState;
     },

@@ -1,14 +1,21 @@
+import { setAuthUser } from '.';
 import {AppThunkResult} from '../../store/index';
-// import {userService} from '../servise/userService/userService';
+import { hideLoading, showErrorModal, showLoading } from '../SettingStore';
 
-
-  export function findByText(text: string): AppThunkResult {
+  export function getAuth(): AppThunkResult {
     return async (dispatch) => {
-      try {
-        // const data = await userService.findByText(text);
-        // console.log(data)
-      } catch (error) {
-        console.log(error)
-      }
+        try {
+          dispatch(showLoading())
+          dispatch(setAuthUser(true))
+        } catch (error) {
+          let erMessage = 'Ошибка';
+          if (error instanceof Error) {
+            erMessage = error.message
+          }
+          dispatch(showErrorModal({isOpen: true, errorMessage: {errorMessage: erMessage, code: 123}}))
+        }finally {
+          window.location.reload();
+          dispatch(hideLoading());
+        }
     };
-  }
+    }

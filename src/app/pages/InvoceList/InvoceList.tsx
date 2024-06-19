@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { InvoceWrapper, useStyles } from './styles';
-import { TableToolBar,InvoceTable } from './components';
+import { TableToolBar,InvoceTable, CreateModal } from './components';
 
-import { getTableData } from '../../reducer/InvoceList/thunk';
+import { getTableData, getTestUrl } from '../../reducer/InvoceList/thunk';
 import { useAppDispatch } from '../../store';
 import { invoceListTableManager } from '../../store/tabelsStore/invoceList';
 
@@ -12,12 +12,14 @@ export const InvoceList = () => {
     const dispatch = useAppDispatch()
     useEffect(() => {
       dispatch(invoceListTableManager.update())
+      dispatch(getTestUrl())
     },[])
     
   return (
     <InvoceWrapper>
         <TableToolBar />
         <InvoceTable />
+        <CreateModal />
     </InvoceWrapper>
   );
 }
