@@ -47,11 +47,20 @@ export const TableComponents: React.FC<TableInterface> = ({columns, rows, childr
                   if (i.style?.cell?.style) {
                     customStyle = {...customStyle, ...i.style.cell.style(rows[indexRows][i.name])}
                   }
+                  if(rows[indexRows][i.name]){
                     return(
                         <TableCell style={customStyle}>
                             {rows[indexRows][i.name].toString()}
                         </TableCell>
                     )
+                  }else{
+                    return(
+                      <TableCell style={customStyle}>
+                          {
+                      ''}
+                      </TableCell>
+                  )           
+                  }
                 })}
             
             </TableRow>

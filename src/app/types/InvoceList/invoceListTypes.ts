@@ -1,4 +1,5 @@
 export type InvoceTableType = {
+    id?: number;
     numberOfParty: number;
     countOfPriceTag: string;
     countOfLabels: string;

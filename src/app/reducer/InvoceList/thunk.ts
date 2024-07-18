@@ -12,7 +12,7 @@ return async (dispatch) => {
     // const data = await userService.findByText(text);
     const data: InvoceTableType[] = [
         {
-        numberOfParty: 1,
+        numberOfParty: 4,
         countOfPriceTag: '2123',
         countOfLabels: '',
         nameOfItem: '',
@@ -176,6 +176,24 @@ export function getTestUrl(): AppThunkResult {
         dispatch(showLoading())
         const data = await invoceListService.getTest()
         console.log(data)
+      } catch (error) {
+        let erMessage = 'Ошибка';
+        if (error instanceof Error) {
+          erMessage = error.message + error.name + error?.stack + error?.cause
+
+        }
+        dispatch(showErrorModal({isOpen: true, errorMessage: {errorMessage: erMessage, code: 0}}))
+      }finally {
+        dispatch(hideLoading());
+      }
+  };
+}
+export function getInvoceData(params: TableState['params']): AppThunkResult {
+  return async (dispatch) => {
+      try {
+        dispatch(showLoading())
+        const data = await invoceListService.getInvoceData(params)
+        dispatch(setTableData(data))
       } catch (error) {
         let erMessage = 'Ошибка';
         if (error instanceof Error) {

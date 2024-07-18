@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { InvoceWrapper, useStyles } from './styles';
 import { TableToolBar,InvoceTable, CreateModal } from './components';
 
-import { getTableData, getTestUrl } from '../../reducer/InvoceList/thunk';
+import { getInvoceData, getTableData, getTestUrl } from '../../reducer/InvoceList/thunk';
 import { useAppDispatch } from '../../store';
 import { invoceListTableManager } from '../../store/tabelsStore/invoceList';
 
