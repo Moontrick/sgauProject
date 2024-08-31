@@ -13,7 +13,7 @@ export const SearchBox = withStyles({
         padding: '20px 20px 20px 0px',
         display: 'flex',
         flexDirection: 'row',
-        gap: '40px',
+        gap: '10px',
         alignItems: 'flex-end',
     }
   })(Box);

@@ -7,7 +7,6 @@ import { PagedResponse } from "../../types/shared/shared";
 
 
 const MAIN_URL = CONFIG.MAIN_API
-const TEST_URL = CONFIG.TEST_API
 
 const getTable = async () => {
   const data = {
@@ -78,7 +77,7 @@ const getTable = async () => {
         nameManufactureSupplier: ''
     
   }
-  const res = await baseService.post(`${TEST_URL}/api/invoce`,data);
+  const res = await baseService.post(`${MAIN_URL}/api/invoce`,data);
   // const params = {
   //   json: '%7B"key":"value"%7D'
   // }
@@ -86,14 +85,15 @@ const getTable = async () => {
   //   return res.data;
   };
 const getTest= async () => {
-    const res = await baseService.get<PagedResponse<TestType[]>>(`${TEST_URL}/api/test`);
+    const res = await baseService.get<PagedResponse<TestType[]>>(`${MAIN_URL}/api/test`);
     return res.data;
   };
 const getInvoceData= async (oldParams: TableState['params']) => {
-  const params: Record<string, string> ={
-    'countOfPriceTag.notEquals': 'Данила гей'
+  const params: Record<string, string> = {}
+  if(oldParams.query){
+    params[oldParams.searchType] = oldParams.query
   }
-  const res = await baseService.get<InvoceTableType[]>(`${TEST_URL}/api/invoce`, {params});
+  const res = await baseService.get<InvoceTableType[]>(`${MAIN_URL}/api/invoce`, {params});
     return res.data;
   };
 
