@@ -359,3 +359,5 @@ export interface RowsSelection<R> {
   checkColumnWidth?: number;
 }
 
+
+export type TableSelection = Record<number, boolean>

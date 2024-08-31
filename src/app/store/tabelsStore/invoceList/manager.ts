@@ -8,6 +8,7 @@ export class InvoceListTableManager extends ThunkTableManager<TableState> {
   public onChangeParams = (params: TableState['params']) => (dispatch: AppThunkDispatch) => {
     dispatch(getInvoceData(params));
   };
+  
 }
 
 export const invoceListTableManager = new InvoceListTableManager({key: 'tableInvoceList'});

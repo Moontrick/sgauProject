@@ -18,7 +18,7 @@ export const colums: TableColumn<InvoceTableType>[]=[
     name: 'numberOfParty',
     title: '№ п/п',
     width: '100',
-    style: certificateExistStyle, 
+    // style: certificateExistStyle, 
   },
     {
     name: 'countOfPriceTag',

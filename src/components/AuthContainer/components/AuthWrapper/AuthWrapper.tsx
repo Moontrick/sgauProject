@@ -16,16 +16,24 @@ export const AuthWrapper = () => {
     const classes = useStyles()
     const dispatch = useAppDispatch()
     
+    const [errorOfAuth, setErrorOfAuth] = useState<boolean>(false);
     const [authData, setAuthData] = useState<AuthData>({
         name: '',
         password: '',
     })
     const {name, password} = authData;
+    
     const onChange = (e:  ChangeEvent<HTMLInputElement>) =>{
+        setErrorOfAuth(false);
         setAuthData({...authData, [e.target.name]: e.target.value})
       }
     const onClick = () =>{
+        if(name === 'admin' && password === '123456'){
         dispatch(getAuth())
+        }else{
+            setAuthData({name: '', password: ''})
+            setErrorOfAuth(true)
+        }
     }
   return (
     <>
@@ -36,6 +44,7 @@ export const AuthWrapper = () => {
                 </div>
                 <div className={classes.inputBlock}>
                 <Typography variant='h5'>Авторизация в системе</Typography>
+                <div>
                 <TextField
                     size='small' 
                     className={classes.input} 
@@ -44,6 +53,12 @@ export const AuthWrapper = () => {
                     name='name' 
                     onChange={onChange} 
                     label='Логин' />
+                    {errorOfAuth && (
+                        <div>
+                            <p style={{color: 'red'}}>Ошибка входа!!</p>
+                        </div>
+                    )}
+                </div>
                 <TextField
                     size='small' 
                     className={classes.input} 

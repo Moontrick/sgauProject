@@ -9,6 +9,7 @@ export type TableStateParams<P extends Record<string, unknown> = Record<string, 
   sort: SortItem[];
   query: string;
   page: number;
+  searchType: string;
 } & P;
 
 export interface TableStateVisual {

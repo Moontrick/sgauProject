@@ -13,6 +13,8 @@ interface TableManager<TS extends TableState = TableState> {
 
   changeSortTable(sort: Partial<TS['params']['sort']>): AnyFunc;
 
+  changeSearchType(searchType: Partial<TS['params']['searchType']>) : AnyFunc;
+
   resetVisual(callback?: (params: TS['visual']) => void): AnyFunc;
   showLoading(loading: TS['visual']['loading']): AnyFunc;
 }

@@ -3,22 +3,16 @@ import React from 'react';
 import { AppRouteSection, AppRouteType, routes } from './routes';
 import Docs from '../assets/icons/DocsIcon.svg';
 import Byu from '../assets/icons/buy.svg';
+import Defactura from '../assets/icons/Defactura.svg';
 import User from '../assets/icons/UserIcon.svg'
 export const appRoutes = [
   {
     id: AppRouteSection.user,
     icons: User,
     title: 'Пользователь',
-    items: [
-      {
-        id: AppRouteType.test,
-        title: 'Настройки пользователя',
-        href: routes[AppRouteType.test].build(),
-      },
-    ],
   },
   {
-    id: AppRouteSection.receiveRawMaterials,
+    id: AppRouteSection.invoceRaw,
     icons: Docs,
     title: 'Накладные',
     items: [
@@ -28,6 +22,11 @@ export const appRoutes = [
         href: routes[AppRouteType.invoceList].build(),
       },
       {
+        id: AppRouteType.priceList,
+        title: 'Прайс-лист поставщика',
+        href: routes[AppRouteType.priceList].build(),
+      },
+      {
         id: AppRouteType.test,
         title: 'unTitled',
         href: routes[AppRouteType.test].build(),
@@ -35,13 +34,25 @@ export const appRoutes = [
     ],
   },
   {
-    id: AppRouteSection.receiveRawSclad,
+    id: AppRouteSection.priceRaw,
     icons: Byu,
     title: 'Заказы',
     items: [
       {
         id: AppRouteType.orderList,
         title: 'Список заказов',
+        href: routes[AppRouteType.orderList].build(),
+      },
+    ],
+  },
+  {
+    id: AppRouteSection.defacturaRaw,
+    icons: Defactura,
+    title: 'Дефактура',
+    items: [
+      {
+        id: AppRouteType.orderList,
+        title: 'Отказ от поставщика',
         href: routes[AppRouteType.orderList].build(),
       },
     ],

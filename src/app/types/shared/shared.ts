@@ -29,3 +29,7 @@ export interface Pageable {
     last: boolean;
   };
   
+  export type Options ={
+    value: string;
+    label: string;
+  }

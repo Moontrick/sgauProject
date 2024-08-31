@@ -54,7 +54,11 @@ export abstract class ThunkTableManager<TS extends TableState = TableState> impl
       dispatch(this.updateState(Object.assign({page})));
     };
   }
-
+  public changeSearchType(searchType: Partial<TS['params']['searchType']>): ThunkAction {
+    return (dispatch) => {
+      dispatch(this.updateState(Object.assign({searchType, page: 0})));
+    };
+  }
   public changeViewTable(viewTable: TS['params']['viewTable']): ThunkAction {
     return (dispatch) => {
       dispatch(this.updateState(Object.assign({viewTable}), false));

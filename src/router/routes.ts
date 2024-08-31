@@ -14,12 +14,14 @@ export interface AppRoute<T = unknown> {
     test = 'test',
     orderList = 'orderList',
     invoceList = 'invoceList',
+    priceList = 'priceList'
   }
   export enum AppRouteSection {
     appMode = 'appMode',
     user = 'user',
-    receiveRawMaterials = 'receiveRawMaterials',
-    receiveRawSclad = 'receiveRawSclad',
+    invoceRaw = 'invoceRaw',
+    priceRaw = 'priceRaw',
+    defacturaRaw = 'defacturaRaw',
   }
   
   export const routes: Record<AppRouteType, AppRoute<unknown & string>> = {
@@ -38,6 +40,10 @@ export interface AppRoute<T = unknown> {
     [AppRouteType.invoceList]: makeAppRoute({
       template: makeUrl('/invoceList'),
       build: () => makeUrl('/invoceList'),
+    }),
+    [AppRouteType.priceList]: makeAppRoute({
+      template: makeUrl('/priceList'),
+      build: () => makeUrl('/priceList'),
     }),
   };
   

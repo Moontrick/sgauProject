@@ -90,9 +90,9 @@ const getTest= async () => {
     return res.data;
   };
 const getInvoceData= async (oldParams: TableState['params']) => {
-const params: Record<string, unknown> = {
-'numberOfParty.contains' : oldParams.query
-}
+  const params: Record<string, string> ={
+    'countOfPriceTag.notEquals': 'Данила гей'
+  }
   const res = await baseService.get<InvoceTableType[]>(`${TEST_URL}/api/invoce`, {params});
     return res.data;
   };

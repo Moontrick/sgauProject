@@ -49,6 +49,12 @@ export abstract class ThunkTableManager<TS extends TableState = TableState> impl
     };
   }
 
+  public changeSearchType(searchType: Partial<TS['params']['searchType']>): ThunkAction {
+    return (dispatch) => {
+      dispatch(this.updateState(Object.assign({searchType, page: 0})));
+    };
+  }
+
   public changePage(page: Partial<TS['params']['page']>): ThunkAction {
     return (dispatch) => {
       dispatch(this.updateState(Object.assign({page})));
