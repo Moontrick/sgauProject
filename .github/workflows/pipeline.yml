@@ -18,4 +18,5 @@ jobs:
           node-version: '20.17.0' 
 
       - name: Run DockerFile  
+        working-directory: ./sgauProject/sgauProject/
         run: docker compose up -d
