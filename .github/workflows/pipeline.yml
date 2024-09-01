@@ -22,6 +22,3 @@ jobs:
 
       - name: Build React app
         run: npm run build
-        
-      - name: Run React app
-        run: npm start & npx wait-on http://77.232.139.205:8083
