@@ -1,5 +1,5 @@
  FROM node:20.17.0
- WORKDIR /app
+ WORKDIR .
  COPY package.json .
  COPY yarn.lock .
  RUN yarn install --force
