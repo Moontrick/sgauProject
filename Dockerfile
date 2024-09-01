@@ -4,4 +4,5 @@ COPY package.json .
 RUN npm install --force
 COPY . .
 EXPOSE 4000
-CMD ["npm", "start"]
+RUN npm run build
+RUN npm start
