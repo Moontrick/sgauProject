@@ -1,13 +1,20 @@
 import React, { useEffect } from 'react';
-import { PriceListWrapper, useStyles } from './styles';
-import { ToolBar } from './components';
+import { PriceListWrapper } from './styles';
+import {PriceTable} from './components/Table';
 import { useAppDispatch } from '../../store';
-export const PriceList = () => {
-    const classes = useStyles()
-    const dispatch = useAppDispatch()
+import { priceListTableManager } from '../../store/tabelsStore/priceList';
+import { TableToolBar } from './components/TableToolBar';
+
+
+export const PriceListPage = ()  => {
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(priceListTableManager.update())
+  },[])
   return (
-    <PriceListWrapper>
-        <ToolBar />
+    <PriceListWrapper >
+      <TableToolBar />
+      <PriceTable />
     </PriceListWrapper>
   );
 }

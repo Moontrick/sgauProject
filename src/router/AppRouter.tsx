@@ -1,10 +1,14 @@
 import {Routes, Route, Navigate, Router} from 'react-router-dom';
 import {routes} from './routes';
 import {HomePage} from '../app/pages/HomePage';
-import {OrderListPage} from '../app/pages/OrderList';
+
 import { TestPage } from '../app/pages/TestPage';
 import { InvoceList } from '../app/pages/InvoceList';
-import { PriceList } from '../app/pages/PriceList';
+import { OrderList } from '../app/pages/OrderList/OrderList';
+import { PriceListPage } from '../app/pages/PriceList';
+import { DefacturaPage } from '../app/pages/Defactura';
+
+
 type RouterItem = {path: string; element: React.ReactNode};
 
 const router: RouterItem[] = [
@@ -18,7 +22,7 @@ const router: RouterItem[] = [
     },
     {
         path: routes.orderList.template, 
-        element: <OrderListPage />
+        element: <OrderList />
     },
     {
         path: routes.invoceList.template, 
@@ -26,7 +30,11 @@ const router: RouterItem[] = [
     },
     {
         path: routes.priceList.template, 
-        element: <PriceList />
+        element: <PriceListPage />
+    },
+    {
+        path: routes.defacturaPage.template, 
+        element: <DefacturaPage />
     },
 ]
 

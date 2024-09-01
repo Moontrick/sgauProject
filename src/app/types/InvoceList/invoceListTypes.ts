@@ -65,6 +65,7 @@ export type InvoceTableType = {
     // numberShelvingCards: string;
     // nameSupplierProduct : string;
     // nameManufactureSupplier: string;
+    id: number;
     docdate: string;
     docnumber : string;
     billdate: string;

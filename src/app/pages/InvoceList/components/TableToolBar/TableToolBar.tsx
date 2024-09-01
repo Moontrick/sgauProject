@@ -21,9 +21,9 @@ type InputeInvoce= {
 }
 
 const options = [
-  {value: 'nameOfItem.contains', label: 'Наименование'},
-  {value: 'numberOfParty.contains', label: '№ п/п'},
-  {value: 'arivalName.contains', label: 'Производитель'}
+  {value: 'docnumber.contains', label: '№ накладной'},
+  {value: 'tovname.contains', label: 'Наименование'},
+  {value: 'fabrname.contains', label: 'Производитель'}
 ]
 export const TableToolBar = ()  => {
   const classes = useStyles()
@@ -59,7 +59,7 @@ export const TableToolBar = ()  => {
         size='small' className={classes.input} variant="outlined" value={input1} name='input1' onChange={onChange} label='Наименование' /> */}
       <SearchSelet manager={invoceListTableManager} label='Фильтр поиска' options={options} onChangeType={onChangeSearchType}/>
       <SearchTable manager={invoceListTableManager} label="Поиск"/>
-      <Button onClick={ () => setError()} variant="contained">Сформировать заказ</Button>
+      <Button onClick={ () => setError()} variant="contained" style={{height: '45px'}}>Сформировать заказ</Button>
       {/* <Button onClick={ () => setShowLoading()}>Лоадинг</Button>
       <Button onClick={ () => setError()}>Ошибка</Button>
       <Button onClick={ () => postZaprs()}>Запрос на сервер</Button>

@@ -1,1 +1,2 @@
-export * from './ToolBar';
+export * from './TableToolBar';
+export * from './Table';

@@ -14,7 +14,8 @@ export interface AppRoute<T = unknown> {
     test = 'test',
     orderList = 'orderList',
     invoceList = 'invoceList',
-    priceList = 'priceList'
+    priceList = 'priceList',
+    defacturaPage = 'defacturaPage'
   }
   export enum AppRouteSection {
     appMode = 'appMode',
@@ -44,6 +45,10 @@ export interface AppRoute<T = unknown> {
     [AppRouteType.priceList]: makeAppRoute({
       template: makeUrl('/priceList'),
       build: () => makeUrl('/priceList'),
+    }),
+    [AppRouteType.defacturaPage]: makeAppRoute({
+      template: makeUrl('/defecturaPage'),
+      build: () => makeUrl('/defecturaPage'),
     }),
   };
   

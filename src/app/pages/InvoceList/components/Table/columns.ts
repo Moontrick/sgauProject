@@ -1,6 +1,7 @@
 import { GridColDef } from "@mui/x-data-grid";
 import { ColumnStyle, TableColumn } from "../../../../../components/Table/types";
 import { InvoceTableType } from "../../../../types/InvoceList/invoceListTypes";
+import { formatDateToDayMonthYear } from "../../../../../utils/date";
 
 const certificateExistStyle: ColumnStyle<InvoceTableType> = {
     cell: {
@@ -15,329 +16,221 @@ const certificateExistStyle: ColumnStyle<InvoceTableType> = {
 
 export const colums: TableColumn<InvoceTableType>[]=[
     {
-    name: 'numberOfParty',
-    title: '№ п/п',
+    name: 'docdate',
+    title: 'Дата накладной',
     width: '100',
+    format: (row) => (formatDateToDayMonthYear(new Date(row))),
     // style: certificateExistStyle, 
   },
     {
-    name: 'countOfPriceTag',
-    title: 'Кол-во ценников',
+    name: 'docnumber',
+    title: 'Номер накладной',
     width: '100'
   },
     {
-    name: 'countOfLabels',
-    title: 'Кол-во этикеток',
-    width: '100'
+    name: 'billdate',
+    title: 'Дата выписки счет-фактуры',
+    width: '100',
+    format: (row) => (formatDateToDayMonthYear(new Date(row))),
   },
     {
-    name: 'nameOfItem',
-    title: 'Наименование',
+    name: 'billnumber',
+    title: 'Номер счет- фактуры',
     width: '500'
   },
     {
-    name: 'arivalName',
-    title: 'Производитель',
+    name: 'tovname',
+    title: 'Наименование товара',
     width: '300'
   },
     {
-    name: 'markingStatus',
-    title: 'Состояние маркировки',
+    name: 'tovcod',
+    title: 'Код товара',
     width: '300'
   },
     {
-    name: 'TSOGroup',
-    title: 'Группа ЦО',
+    name: 'fabrname',
+    title: 'Наименование производителя ',
     width: '300'
   },
     {
-    name: 'markingCategory',
-    title: 'Категория маркировки',
+    name: 'country',
+    title: 'Страна производителя',
     width: '300'
   },
     {
-    name: 'VATRate',
+    name: 'quantity',
+    title: 'Количество товара',
+    width: '500'
+  },
+    {
+    name: 'seria',
+    title: 'Серия товара',
+    width: '500'
+  },
+    {
+    name: 'srokg',
+    title: 'Срок годности товара',
+    width: '500',
+    format: (row) => (formatDateToDayMonthYear(new Date(row))),
+  },
+    {
+    name: 'numbergtd',
+    title: 'Номер грузовой таможенной декларации для импортного товара.',
+    width: '500'
+  },
+    {
+    name: 'sert',
+    title: 'Сертификат выданный на данный товар.',
+    width: '500'
+  },
+    {
+    name: 'sertstart',
+    title: 'Дата начала действия (регистрации) сертификата',
+    width: '500',
+    format: (row) => (formatDateToDayMonthYear(new Date(row))),
+  },
+    {
+    name: 'sertend',
+    title: 'Дата окончания действия сертификата',
+    width: '500',
+    format: (row) => (formatDateToDayMonthYear(new Date(row))),
+  },
+    {
+    name: 'sertlab',
+    title: 'Лаборатория, выдавшая сертификат.',
+    width: '500'
+  },
+    {
+    name: 'regnumber',
+    title: 'Регистрационный номер присвоенный партии лек.средства в региональном центре контроля качества ЛС. ',
+    width: '500'
+  },
+    {
+    name: 'nds',
     title: 'Ставка НДС',
     width: '500'
   },
     {
-    name: 'quantityPack',
-    title: 'Кол-во упак.',
+    name: 'pfabrnonds',
+    title: 'Цена производителя без НДС',
     width: '500'
   },
     {
-    name: 'numberParts',
-    title: 'Кол-во в частях',
+    name: 'pfabrwnds',
+    title: 'Цена производителя с НДС',
     width: '500'
   },
     {
-    name: 'priceWithoutVAT',
-    title: 'Цена произ. без НДС',
+    name: 'pfoptnonds',
+    title: 'Цена отпускная оптовой организации БЕЗ НДС (по которой аптека покупает). ',
     width: '500'
   },
     {
-    name: 'priceWithVAT',
-    title: 'Цена произ. c НДС',
+    name: 'pfoptwnds',
+    title: 'Цена отпускная оптовой организации С НДС (по которой аптека покупает).',
     width: '500'
   },
     {
-    name: 'wholesalePriceWithoutVAT',
-    title: 'Цена оптовая без НДС',
-    width: '500'
-  },
-    {
-    name: 'wholesalePriceWithVAT',
-    title: 'Цена оптовая с НДС',
-    width: '500'
-  },
-    {
-    name: 'amountWholesaleWithoutVAT',
-    title: 'Сумма оптовая без НДС',
-    width: '500'
-  },
-    {
-    name: 'amountVATWholesale',
-    title: 'Сумма НДС опт.',
-    width: '500'
-  },
-    {
-    name: 'wholesaleAmountWithVATRetail',
-    title: 'Сумма оптовая с НДС% розн. нац. от цены опт. с НДС',
-    width: '500'
-  },
-    {
-    name: 'marginRublesPriceWithoutVAT',
-    title: 'Наценка в руб.% розн. нац. от цены произв. без НДС',
-    width: '500'
-  },
-    {
-    name: 'maxWholesalePriceRetailWithVAT',
-    title: 'Макс. опт. цена	Цена розничная с НДС',
-    width: '500'
-  },
-    {
-    name: 'maxRetailPrice',
-    title: 'Макс. розн. цена',
-    width: '500'
-  },
-    {
-    name: 'retailAmountWithVAT',
-    title: 'Сумма розничная с НДС',
-    width: '500'
-  },
-    {
-    name: 'priceRegistryInvoice',
-    title: 'Цена реестра в накладной',
-    width: '500'
-  },
-    {
-    name: 'expirationDate',
-    title: 'Срок годности',
-    width: '500'
-  },
-    {
-    name: 'series',
-    title: 'Серия',
-    width: '500'
-  },
-    {
-    name: 'manufacturerBarcode',
-    title: 'Штрихкод производителя',
-    width: '500'
-  },
-    {
-    name: 'currentBalance',
-    title: 'Текущий остаток',
-    width: '500'
-  },
-    {
-    name: 'lastRetailPriceWithVAT',
-    title: 'Последняя розничная цена с НДС',
-    width: '500'
-  },
-    {
-    name: 'GTDnumber',
-    title: 'Номер ГТД',
-    width: '500'
-  },
-    {
-    name: 'certificate',
-    title: 'Сертификат',
-    width: '500'
-  },
-    {
-    name: 'dateCertificate',
-    title: 'Дата сертификата',
-    width: '500'
-  },
-    {
-    name: 'laboratoryNumber',
-    title: 'Лаборатория	Рег. номер',
-    width: '500'
-  },
-    {
-    name: 'priceRegistryReference',
-    title: 'Цена реестра справочно',
-    width: '500'
-  },
-    {
-    name: 'ZHNVLS',
-    title: 'ЖНВЛС',
-    width: '500'
-  },
-    {
-    name: 'batchNumber',
-    title: '№ Партии',
-    width: '500'
-  },
-    {
-    name: 'internalBarcode',
-    title: 'Внутренний штрихкод',
-    width: '500'
-  },
-    {
-    name: 'pharmaceuticalGroup',
-    title: 'Фармацевтическая группа',
-    width: '500'
-  },
-    {
-    name: 'storageLocation',
-    title: 'Место хранения',
-    width: '500'
-  },
-    {
-    name: 'percentageWholesaleMargin',
+    name: 'poptnac',
     title: 'Процент оптовой наценки',
     width: '500'
   },
     {
-    name: 'priceRetailWithoutVAT',
-    title: 'Цена розн. без НДС	% розн. нац. от цены опт. без НДС',
+    name: 'soptnonds',
+    title: 'Сумма без НДС за товар по строке. Нужна чтобы сумма электронной накладной сходилась до копейки с бумажной.',
     width: '500'
   },
     {
-    name: 'maxNational',
-    title: 'Макс. % нац.',
+    name: 'soptwnds',
+    title: 'Сумма с НДС за товар по строке. Нужно чтобы сумма электронной накладной сходилась до копейки с бумажной.',
     width: '500'
   },
     {
-    name: 'excise',
-    title: 'Акциз',
+    name: 'soitogwnds',
+    title: 'Сумма с НДС за товар по всему документу.',
     width: '500'
   },
     {
-    name: 'dutyMargin',
-    title: 'Маржа',
+    name: 'sumnds',
+    title: 'Сумма НДС по строке в накладной. Нужно чтобы сумма электронной накладной сходилась до копейки с бумажной.',
     width: '500'
   },
     {
-    name: 'lot',
-    title: 'Лот',
+    name: 'rprice',
+    title: 'Цена реестра ЖНВЛП',
     width: '500'
   },
     {
-    name: 'productCode',
-    title: 'Код товара',
+    name: 'sumitognds',
+    title: 'Сумма НДС по всему документу',
     width: '500'
   },
     {
-    name: 'priceRetailWithDiscount',
-    title: 'Цена розн. со скидкой',
+    name: 'barcode1',
+    title: 'Штрихкод товара (12-13 символов) в текстовом формате.',
     width: '500'
   },
     {
-    name: 'reasonClaim',
-    title: 'Причина претензии',
+    name: 'kodclient',
+    title: 'Код подразделения организации покупателя куда доставляется товар. Организация как правило одна, подразделений куда доставляется товар (апт.пунктов, филиалов) может быть несколько с разными кодами.',
     width: '500'
   },
     {
-    name: 'markingFeature',
+    name: 'nameclient',
+    title: 'Наименование контрагента в системе поставщика',
+    width: '500'
+  },
+    {
+    name: 'adrclient',
+    title: 'Адрес фактического грузополучателя (точки доставки) клиента',
+    width: '500'
+  },
+    {
+    name: 'pricerozn',
+    title: 'Цена розничная для продажи в аптеке, устанавливаемая поставщиком (интернет-заказы (Аптека.ру, Здравсити и пр.), акции).',
+    width: '500'
+  },
+    {
+    name: 'intzak',
+    title: 'Признак интернет - заказа',
+    width: '500'
+  },
+    {
+    name: 'marktag',
     title: 'Признак маркировки',
     width: '500'
   },
     {
-    name: 'dateSaleManufacturer',
-    title: 'Дата реализации производителя',
+    name: 'gtin',
+    title: 'Код GTIN наименований',
     width: '500'
   },
     {
-    name: 'comment',
-    title: 'Комментарий',
+    name: 'placeid',
+    title: 'Код места деятельности поставщика',
     width: '500'
   },
     {
-    name: 'dataRosnPriceWithVAT',
-    title: 'Данные по конечному получателю | Розн.цена с НДС',
+    name: 'accept',
+    title: 'Тип акцепта',
     width: '500'
   },
     {
-    name: 'dataRosnPriceWithoutVAT',
-    title: 'Данные по конечному получателю | Розн.цена без НДС	',
-    width: '500'
+    name: 'datesale',
+    title: 'Для ЖНВЛП, дата реализации лекарственного препарата производителем ',
+    width: '500',
+    format: (row) => (formatDateToDayMonthYear(new Date(row))),
   },
     {
-    name: 'dataMaxRetailPrice',
-    title: 'Данные по конечному получателю | Макс. розн. цена',
-    width: '500'
+    name: 'datemade',
+    title: 'Дата производства препарата',
+    width: '500',
+    format: (row) => (formatDateToDayMonthYear(new Date(row))),
   },
     {
-    name: 'dataMarginWholesalePriceWithVAT',
-    title: 'Данные по конечному получателю |% наценки от цены опт. с НДС',
-    width: '500'
-  },
-    {
-    name: 'dataMarginManufacturerPriceWithoutVAT',
-    title: 'Данные по конечному получателю | % наценки от цены производителя без НДС',
-    width: '500'
-  },
-    {
-    name: 'dataCOCGroupWarehouseMargin',
-    title: 'Данные по конечному получателю | Группа ЦО	Наценка склада',
-    width: '500'
-  },
-    {
-    name: 'originalPriceWithVAT',
-    title: 'Изначальная розн. цена с НДС',
-    width: '500'
-  },
-    {
-    name: 'INN',
-    title: 'ИНН',
-    width: '500'
-  },
-    {
-    name: 'factoryPackaging',
-    title: 'Заводская фасовка',
-    width: '500'
-  },
-    {
-    name: 'productGroupCode',
-    title: 'код товарной группы',
-    width: '500'
-  },
-    {
-    name: 'nameProductGroup',
-    title: 'Наименование товарной группы',
-    width: '500'
-  },
-    {
-    name: 'numberUnitChanges',
-    title: 'Кол-во|Ед.изм.',
-    width: '500'
-  },
-    {
-    name: 'numberShelvingCards',
-    title: 'Кол-во стеллажных карточек',
-    width: '500'
-  },
-    {
-    name: 'nameSupplierProduct',
-    title: 'Наименование товара поставщика',
-    width: '500'
-  },
-    {
-    name: 'nameManufactureSupplier',
-    title: 'Наименование производителя поставщика',
+    name: 'sscc',
+    title: 'Код транспортной упаковки',
     width: '500'
   },
 ]

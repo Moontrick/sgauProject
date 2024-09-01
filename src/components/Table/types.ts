@@ -160,7 +160,10 @@ export interface TableColumn<R> extends Column {
    * Ширина, если number - в пикселях, если string - css-свойство (например: '100px', '20%', 'auto').
    */
   width?: number | string;
+
+  format?: (value : string) => string;
   /**
+  
    * Выравнивание текста.
    */
   align?: 'left' | 'right' | 'center';

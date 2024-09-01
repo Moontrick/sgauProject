@@ -1,13 +1,20 @@
-import React from 'react';
-import { OrderListWrapper } from './styles';
-import {TableToolBar} from './components';
-import Table from './components/Table/Table';
+import React, { useEffect } from 'react';
+import { OrderListWrapper, useStyles } from './styles';
+import { ToolBar } from './components';
+import { useAppDispatch } from '../../store';
+import { orderListTableManager } from '../../store/tabelsStore/orderList';
+import { OrderTable } from './components/Table';
+export const OrderList = () => {
+    const classes = useStyles()
+    const dispatch = useAppDispatch()
 
-export const OrderListPage = ()  => {
+    useEffect(() => {
+      dispatch(orderListTableManager.update())
+    },[])
   return (
-    <OrderListWrapper >
-      <TableToolBar />
-      <Table />
+    <OrderListWrapper>
+        <ToolBar />
+        <OrderTable />
     </OrderListWrapper>
   );
 }

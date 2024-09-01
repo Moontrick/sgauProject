@@ -7,7 +7,7 @@ const defaultState = {
         sort: '',
         query: '',
         page: 0,
-        searchType: 'nameOfItem.contains',
+        searchType: 'docnumber.contains',
     },
     
 };

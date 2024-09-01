@@ -1,19 +1,7 @@
-import {makeStyles, withStyles} from '@mui/styles';
-import { RootWrapper } from '../../../components/RootWrapper';
 import { Box } from '@material-ui/core';
+import {makeStyles, withStyles} from '@mui/styles';
 
-export const useStyles = makeStyles(() => {
-    return {
-        icon:{
-            width:'500px',
-            height:'500px',
-        }
-
-    }
-}
-);
 export const PriceListWrapper = withStyles({
     root: {
-    },
+    }
   })(Box);
-  

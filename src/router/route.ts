@@ -26,11 +26,6 @@ export const appRoutes = [
         title: 'Прайс-лист поставщика',
         href: routes[AppRouteType.priceList].build(),
       },
-      {
-        id: AppRouteType.test,
-        title: 'unTitled',
-        href: routes[AppRouteType.test].build(),
-      },
     ],
   },
   {
@@ -48,12 +43,12 @@ export const appRoutes = [
   {
     id: AppRouteSection.defacturaRaw,
     icons: Defactura,
-    title: 'Дефактура',
+    title: 'Дефeктура',
     items: [
       {
-        id: AppRouteType.orderList,
+        id: AppRouteType.defacturaPage,
         title: 'Отказ от поставщика',
-        href: routes[AppRouteType.orderList].build(),
+        href: routes[AppRouteType.defacturaPage].build(),
       },
     ],
   },
