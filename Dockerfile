@@ -3,7 +3,7 @@
  COPY package.json .
  RUN npm install --force
  COPY . . 
- EXPOSE 4000
+ EXPOSE 8083
 
  # Создайте билд 
  RUN npm run build
