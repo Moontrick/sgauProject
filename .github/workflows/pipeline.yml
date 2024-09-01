@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: '20.17.0' 
       - name: Delete Docker
-        run: docker compose rm -s -v -f frontend
+        run: docker compose rm -s -v -f front
         
       - name: Run DockerFile  
         run: docker compose up -d
