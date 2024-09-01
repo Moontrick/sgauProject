@@ -23,7 +23,7 @@ export const AuthWrapper = () => {
     })
     const {name, password} = authData;
     
-    const onChange = (e:  ChangeEvent<HTMLInputElement>) =>{
+    const onChange = (e:  ChangeEvent<HTMLInputElement>) =>{ 
         setErrorOfAuth(false);
         setAuthData({...authData, [e.target.name]: e.target.value})
       }
