@@ -7,7 +7,7 @@ const defaultState = {
         sort: '',
         query: '',
         page: 0,
-        searchType: 'docnumber.contains',
+        searchType: 'n_otkazContains',
     },
     
 };

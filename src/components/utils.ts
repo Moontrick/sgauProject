@@ -20,7 +20,7 @@ export function setValueToStorage(key: string, value: unknown) {
         const stringValue = JSON.stringify(value);
 
         storage.setItem(key, stringValue);
-    } catch (error) {
+    } catch (error) { 
         console.error(error);
     }
 }
