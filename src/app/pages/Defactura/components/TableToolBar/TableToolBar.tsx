@@ -10,9 +10,10 @@ import { defacturaListTableManager, setSearchType } from '../../../../store/tabe
 
 const DEFECTURA_LIST_TITLE = 'Дефектура от поставщика'
 const options: Options[] = [
-  {value: 'tovcod.contains', label: 'Код товара'},
-  {value: 'tovname.contains', label: 'Наименование'},
-  {value: 'fabrname.contains', label: 'Производитель'}
+  {value: 'n_otkazContains', label: 'Номер'},
+  {value: 'kod_tovContains', label: 'Код товара'},
+  {value: 'name_tovContains', label: 'Наименование'},
+  {value: 'proizvContains', label: 'Производитель'}
 ]
 export const TableToolBar = ()  => {
   const dispatch = useAppDispatch()
