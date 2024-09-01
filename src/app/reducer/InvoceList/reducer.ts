@@ -4,7 +4,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 export const slice = createSlice({
   name: 'invoceList',
   initialState,
-  reducers: {
+  reducers: { 
     setTableData: (state, action: PayloadAction<InvoceTableType[]>) => {
       state.tableData = action.payload;
     },
