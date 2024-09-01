@@ -1,0 +1,24 @@
+name: deploy
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.17.0' 
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build React app
+        run: yarn build
