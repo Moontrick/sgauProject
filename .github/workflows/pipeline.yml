@@ -16,6 +16,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.17.0' 
-
+      - name: Delete Docker
+        run: docker compose rm -s -v -f frontend
+        
       - name: Run DockerFile  
         run: docker compose up -d
