@@ -1,5 +1,5 @@
 FROM node:20.17.0
-WORKDIR .
+WORKDIR /src
 COPY package.json .
 RUN npm install --force
 COPY . . 
