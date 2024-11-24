@@ -3,5 +3,5 @@ type CONFIG_TYPE = {
 }
 
 export const CONFIG: CONFIG_TYPE = {
-    MAIN_API: 'http://77.232.139.205:8081'
+    MAIN_API: 'http://176.124.219.171:8081'
 }
