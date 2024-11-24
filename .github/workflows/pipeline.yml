@@ -18,6 +18,9 @@ jobs:
           node-version: '20.17.0' 
       - name: Delete Docker
         run: docker compose rm -s -v -f front
-        
+
+      - name: login dockerhub
+        run: echo "${{ secrets.DOCKERHUB_UI_TOKEN }}" | docker login -u "${{ vars.DOCKERHUB_UI_USERNAME }}" —password-stdin
+
       - name: Run DockerFile  
         run: docker compose up -d
