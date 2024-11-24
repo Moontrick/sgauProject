@@ -4,7 +4,7 @@ export * from './SearchTable';
 export * from './RootWrapper';
 export * from './SettingContainer';
 export * from './AuthContainer';
-export * from './Modal';
+export * from './Modal'; 
 
 
 
