@@ -1,6 +1,7 @@
 FROM node:20.17.0
 WORKDIR /app
-COPY package.json /app/package.json
+COPY package*.json ./
 RUN npm install --force
-COPY . /app
-RUN npm run build
+COPY . .
+EXPOSE 8083
+CMD ["npm", "start"]
